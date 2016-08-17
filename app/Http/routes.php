@@ -24,6 +24,17 @@ Route::get('/test',function(){
 });
 
 Route::get('index','IndexController@index');
+Route::get('input','UserController@index');
+Route::get('query','UserController@query');
+
+
+
+
+
+
+Route::resource('photo', 'PhotoController');
+ 
+
 
 /*
 |--------------------------------------------------------------------------
