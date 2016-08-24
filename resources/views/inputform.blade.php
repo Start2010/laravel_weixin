@@ -10,7 +10,7 @@
 </head>
 <body>
 		
-		<form action="query" method="post">
+		<form action="query" method="get">
 			username: <input type="text" name="username">			<br>
 			password:	<input type="text" name="password"> <br>
 			submit: <input type="submit" value="提交">

@@ -14,22 +14,27 @@
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-
-Route::get('/test',function(){
-	return "111112222";
-});
 
 Route::get('index','IndexController@index');
 Route::get('input','UserController@index');
 Route::get('query','UserController@query');
+Route::get('querydb','UserController@querydb');
+Route::get('viewindex','ViewController@index');
+Route::get('view','ViewController@view');
 
 
+Route::get('appindex','AppController@index');
+Route::get('appview','AppController@view');
 
 
+Route::get('response',function(){
+	return response("response",200)->cookie('name','cookieTest');
+});
+
+Route::get('json',function(){
+	return response()->json(['name'=>'alibabab','state'=>'CA']);
+});
 
 
 Route::resource('photo', 'PhotoController');
@@ -47,6 +52,13 @@ Route::resource('photo', 'PhotoController');
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
+Route::group(['middleware' => ['web','admin_login']], function () {
     //
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
 });
+
+Route::auth();
+
